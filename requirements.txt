@@ -1,10 +1,10 @@
-numpy
+numpy==1.21.5
 nltk
 pyarrow
 requests
 #inference on cpu
-tensorflow-cpu
+#tensorflow-cpu
 #uncomment bellow and comment above to train on a GPU
-#tensorflow>=2.2.0
+intel-tensorflow==2.8.0
 keras
 pillow
