@@ -63,6 +63,8 @@ validation_generator = keras_pre.image_dataset_from_directory(
         batch_size=32,
         validation_split=0.2,
         subset='validation')
+log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
 history = model.fit(
       train_generator,
       epochs=args.epochs,
