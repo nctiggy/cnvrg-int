@@ -2,6 +2,7 @@ import tensorflow as tf
 import os
 import argparse
 from tensorflow.keras.optimizers import RMSprop
+import datetime
 # from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras import preprocessing as keras_pre
 
