@@ -12,6 +12,10 @@ parser.add_argument("-e",
                     "--epochs",
                     type=int,
                     help="Number of epochs")
+parser.add_argument("-b",
+                    "--batch_size",
+                    type=int,
+                    help="Specify the batch size")
 parser.add_argument("-d",
                     "--data_path",
                     type=str,
