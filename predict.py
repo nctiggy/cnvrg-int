@@ -4,7 +4,7 @@ from keras.preprocessing import image
 import requests
 
 
-model = load_model("imagizer.model.h5")
+model = load_model("/input/train_the_model/output/imagizer.model.h5")
 
 
 def predict(file_url):
