@@ -78,6 +78,7 @@ history = model.fit(
 
 print('cnvrg_tag_test_accuracy: ', history.history['val_acc'][-1])
 print('cnvrg_tag_test_loss: ', history.history['val_loss'][-1])
+print('cnvrg_tag_test_tag: ', "testing tags")
 if not os.path.exists('output'):
     os.mkdir('output')
 model.save('output/imagizer.model.h5')
