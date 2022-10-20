@@ -2,9 +2,11 @@ import numpy as np
 from keras.models import load_model
 from keras.preprocessing import image
 import requests
+import os
 
 
-model = load_model("/input/train_the_model/output/imagizer.model.h5")
+exp_path = os.getenv('CNVRG_TASKS_PASSED_CONDITION')
+model = load_model(f"{exp_path}/output/imagizer.model.h5")
 
 
 def predict(file_url):
