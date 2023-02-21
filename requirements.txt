@@ -9,3 +9,4 @@ requests
 intel-tensorflow==2.8.0
 keras
 pillow
+notebook
