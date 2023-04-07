@@ -11,3 +11,4 @@ keras
 pillow
 notebook
 jupyterlab
+gunicorn
