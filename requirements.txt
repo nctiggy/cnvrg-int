@@ -12,3 +12,4 @@ pillow
 notebook
 jupyterlab
 gunicorn
+Flask
