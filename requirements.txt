@@ -13,4 +13,4 @@ notebook
 jupyterlab
 gunicorn
 Flask
-cnvrgv2
+cnvrg
