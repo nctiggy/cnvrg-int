@@ -6,7 +6,7 @@ requests
 #inference on cpu
 #tensorflow-cpu
 #uncomment bellow and comment above to train on a GPU
-intel-tensorflow==2.8.0
+intel-tensorflow==2.11.0
 keras
 pillow
 notebook
