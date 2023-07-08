@@ -1,12 +1,10 @@
-protobuf==3.19.*
+#protobuf==3.19.*
 numpy==1.21.5
 nltk
 pyarrow
 requests
-#inference on cpu
 #tensorflow-cpu
-#uncomment bellow and comment above to train on a GPU
-intel-tensorflow==2.11.0
+#intel-tensorflow==2.11.0
 keras
 pillow
 notebook
