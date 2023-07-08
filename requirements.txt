@@ -7,8 +7,8 @@ requests
 #intel-tensorflow==2.11.0
 keras
 pillow
-notebook
-jupyterlab
+#notebook
+#jupyterlab
 gunicorn
 Flask
 cnvrg
