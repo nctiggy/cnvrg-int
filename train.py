@@ -25,7 +25,7 @@ args = parser.parse_args()
 
 class myCallback(Callback):    
     def on_epoch_end(self, epoch, logs=None):
-        print(logs)
+        print(f"Here are ecoch #{epoch} logs outputs: {logs}")
 
 model = tf.keras.models.Sequential([
     tf.keras.layers.Conv2D(16,
