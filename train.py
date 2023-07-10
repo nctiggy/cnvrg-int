@@ -24,7 +24,7 @@ parser.add_argument("-d",
 args = parser.parse_args()
 
 class myCallback(Callback):    
-    def on_epoch_end(self, logs=None):
+    def on_epoch_end(self, epoch, logs=None):
         print(logs)
 
 model = tf.keras.models.Sequential([
