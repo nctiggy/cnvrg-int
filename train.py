@@ -50,8 +50,7 @@ loss_callback_obj = myCallback()
 
 model.compile(loss='binary_crossentropy',
               optimizer=RMSprop(learning_rate=0.001),
-              metrics=['acc'],
-              callbacks=[loss_callback_obj]
+              metrics=['acc']
              )
 
 
@@ -85,7 +84,9 @@ history = model.fit(
       train_generator,
       epochs=args.epochs,
       validation_data=validation_generator,
-      verbose=1)
+      verbose=1,
+      callbacks=[loss_callback_obj]
+)
 
 print('cnvrg_tag_test_accuracy: ', history.history['val_acc'][-1])
 print('cnvrg_tag_test_loss: ', history.history['val_loss'][-1])
