@@ -1,6 +1,7 @@
 import tensorflow as tf
 import os
 import argparse
+from tensorflow.keras.callbacks import Callback
 from tensorflow.keras.optimizers import RMSprop
 import datetime
 # from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -22,6 +23,10 @@ parser.add_argument("-d",
                     help="Path to the data source")
 args = parser.parse_args()
 
+class myCallback(Callback):    
+    def on_epoch_end(self, logs=None):
+        print(logs)
+
 model = tf.keras.models.Sequential([
     tf.keras.layers.Conv2D(16,
                            (3, 3),
@@ -40,9 +45,15 @@ model = tf.keras.models.Sequential([
     tf.keras.layers.Dense(1, activation='sigmoid')
 ])
 
+
+loss_callback_obj = myCallback()
+
 model.compile(loss='binary_crossentropy',
               optimizer=RMSprop(learning_rate=0.001),
-              metrics=['acc'])
+              metrics=['acc']
+              callbacks=[loss_callback_obj]
+             )
+
 
 # train_datagen = ImageDataGenerator(rescale=1/255,
 #                                   validation_split=0.2)
