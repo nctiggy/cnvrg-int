@@ -108,6 +108,7 @@ print('cnvrg_tag_binary_crossentropy: ', history.history['binary_crossentropy'][
 print('cnvrg_tag_val_binary_crossentropy: ', history.history['val_binary_crossentropy'][-1])
 print('cnvrg_tag_loss: ', history.history['loss'][-1])
 print('cnvrg_tag_val_loss: ', history.history['val_loss'][-1])
+e.log_param("binary_accuracy", history.history['binary_accuracy'][-1])
 print('cnvrg_tag_str_tag: ', "This is a String")
 if not os.path.exists('output'):
     os.mkdir('output')
