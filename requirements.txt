@@ -12,3 +12,4 @@ pillow
 gunicorn
 Flask
 cnvrg
+cnvrg_experiment_chart
