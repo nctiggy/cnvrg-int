@@ -6,6 +6,8 @@ from tensorflow.keras.optimizers import RMSprop
 import datetime
 # from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras import preprocessing as keras_pre
+from cnvrg_experiment_chart import ExperimentChart
+from cnvrgv2 import Experiment
 
 help_msg = "This loads in a trained modeal and returns a prediction"
 parser = argparse.ArgumentParser(description=help_msg)
@@ -23,9 +25,22 @@ parser.add_argument("-d",
                     help="Path to the data source")
 args = parser.parse_args()
 
+e = Experiment()
+
+loss_chart = ExperimentChart(key="loss_accuracy_comparison", chart_type="line", experiment=e)
+loss_chart.add_series(series_name="val_loss")
+loss_chart.add_series(series_name="val_binary_accuracy")
+loss_chart.create_chart()
+
+binary_crossentropy_chart = ExperimentChart(key="binary_crossentropy", chart_type="line", experiment=e)
+binary_crossentropy_chart.add_series(series_name="binary_crossentropy")
+binary_crossentropy_chart.create_chart()
+
 class myCallback(Callback):    
     def on_epoch_end(self, epoch, logs=None):
-        print(f"Here are ecoch #{epoch} logs outputs: {logs}")
+        loss_chart.add_metric(data=[logs["val_loss"]], series_name="val_loss")
+        loss_chart.add_metric(data=[logs["val_binary_accuracy"]], series_name="val_binary_accuracy")
+        binary_crossentropy_chart.add_metric(data=[logs["binary_crossentropy"]], series_name="binary_crossentropy")
 
 model = tf.keras.models.Sequential([
     tf.keras.layers.Conv2D(16,
