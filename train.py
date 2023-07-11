@@ -50,7 +50,7 @@ loss_callback_obj = myCallback()
 
 model.compile(loss='binary_crossentropy',
               optimizer=RMSprop(learning_rate=0.001),
-              metrics=['acc']
+              metrics=[tf.keras.metrics.BinaryCrossentropy()]
              )
 
 
