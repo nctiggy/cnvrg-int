@@ -50,7 +50,8 @@ loss_callback_obj = myCallback()
 
 model.compile(loss='binary_crossentropy',
               optimizer=RMSprop(learning_rate=0.001),
-              metrics=[tf.keras.metrics.BinaryCrossentropy()]
+              metrics=[tf.keras.metrics.BinaryCrossentropy(),
+                       tf.keras.metrics.BinaryAccuracy()]
              )
 
 
@@ -88,9 +89,11 @@ history = model.fit(
       callbacks=[loss_callback_obj]
 )
 
-print('cnvrg_tag_test_accuracy: ', history.history['val_acc'][-1])
-print('cnvrg_tag_test_loss: ', history.history['val_loss'][-1])
-print('cnvrg_tag_test_tag: ', "testing tags")
+print('cnvrg_tag_binary_crossentropy: ', history.history['binary_crossentropy'][-1])
+print('cnvrg_tag_val_binary_crossentropy: ', history.history['val_binary_crossentropy'][-1])
+print('cnvrg_tag_loss: ', history.history['loss'][-1])
+print('cnvrg_tag_val_loss: ', history.history['val_loss'][-1])
+print('cnvrg_tag_str_tag: ', "This is a String")
 if not os.path.exists('output'):
     os.mkdir('output')
 model.save('output/imagizer.model.h5')
