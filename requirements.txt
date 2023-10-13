@@ -14,3 +14,4 @@ Flask
 cnvrg
 cnvrgv2
 cnvrg_experiment_chart
+cnvrg_endpoint_binary
